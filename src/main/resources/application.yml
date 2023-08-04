@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: spring_session
+    hikari:
+      maximum-pool-size: '5'
+      connection-timeout: '60000'
+    url: jdbc:postgresql://localhost:8095/postgres
+    password: spring_session
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: 'true'
+    properties:
+      hibernate:
+        default_schema: spring_session_demo
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+
+info:
+  app:
+    name: spring-security-jwt
+    description: spring-security-demo-jwt-application
+    version: 1.0.0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+app:
+  secret:
+    key: fr@167!
